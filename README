@@ -1,0 +1,42 @@
+This README file contains information on the contents of the
+meta-fullmetalupdate-extra layer.
+
+Please see the corresponding sections below for details.
+
+
+Dependencies
+============
+
+This layer depends on:
+
+  URI: https://github.com/FullMetalUpdate/meta-fullmetalupdate
+  layers: meta-fullmetalupdate
+  branch: master
+
+  URI: https://github.com/meta-qt5/meta-qt5
+  layers: meta-qt5
+  branch: rocko
+
+  URI: https://git.yoctoproject.org/git/meta-freescale
+  layers: meta-freescale
+  branch: rocko
+
+  URI: https://git.yoctoproject.org/git/meta-freescale-3rdparty
+  layers: meta-freescale-3rdparty
+  branch: rocko
+
+  URI: https://git.yoctoproject.org/git/meta-freescale-distro
+  layers: meta-freescale-distro
+  branch: rocko
+
+Patches
+=======
+
+Please submit any patches against the meta-fullmetalupdate-extra layer to the
+https://github.com/FullMetalUpdate/meta-fullmetalupdate-extra/pulls/
+
+Maintainer: Georges Savoundararadj <gsavoundararadj@witekio.com>
+
+Please more find more information on:
+
+https://www.fullmetalupdate.io/docs/documentation/
