@@ -1,0 +1,12 @@
+diff --git a/include/configs/mx6sabre_common.h b/include/configs/mx6sabre_common.h
+index 53c9f05..8a7a654 100644
+--- a/include/configs/mx6sabre_common.h
++++ b/include/configs/mx6sabre_common.h
+@@ -71,6 +71,7 @@
+ 	"fi;"
+ 
+ #define CONFIG_EXTRA_ENV_SETTINGS \
++	"splashpos=m,m\0" \
+ 	"script=boot.scr\0" \
+ 	"image=zImage\0" \
+ 	"fdt_file=undefined\0" \
