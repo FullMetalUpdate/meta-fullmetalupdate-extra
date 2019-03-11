@@ -1,0 +1,15 @@
+diff --git a/include/configs/rpi.h b/include/configs/rpi.h
+index c499b45..38eeb5c 100644
+--- a/include/configs/rpi.h
++++ b/include/configs/rpi.h
+@@ -146,6 +146,10 @@
+ 	"kernel_addr_r=0x01000000\0" \
+ 	"scriptaddr=0x02000000\0" \
+ 	"ramdisk_addr_r=0x02100000\0" \
++	"devtype=mmc\0" \
++	"devnum=0\0" \
++	"distro_bootpart=1\0" \
++	
+ 
+ #define BOOT_TARGET_DEVICES(func) \
+ 	func(MMC, mmc, 0) \

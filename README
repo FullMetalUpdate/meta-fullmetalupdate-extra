@@ -29,6 +29,10 @@ This layer depends on:
   layers: meta-freescale-distro
   branch: rocko
 
+  URI: https://git.yoctoproject.org/git/meta-rasperrypi
+  layers: meta-rasperrypi
+  branch: rocko
+
 Patches
 =======
 
