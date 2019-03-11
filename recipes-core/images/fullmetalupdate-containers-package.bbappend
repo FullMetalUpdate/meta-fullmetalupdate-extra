@@ -1,5 +1,3 @@
-PREINSTALLED_CONTAINERS_LIST_append_imx6qdlsabresd = "container-qt-evcs-package"
-
-PACKAGECONFIG_remove-pn-qtbase_imx6qdlsabresd = "x11 xcb xkb xkbcommon-evdev"
-
-IMAGE_ROOTFS_EXTRA_SPACE_imx6qdlsabresd = "202173"
+# Copyright (C) 2019 Witekio
+# Released under the MIT license (see COPYING.MIT for the terms)
+require ${PN}_${MACHINE}.inc
