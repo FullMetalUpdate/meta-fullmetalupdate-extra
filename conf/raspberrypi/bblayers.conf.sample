@@ -18,4 +18,6 @@ BBLAYERS = " \
   \
   ${BSPDIR}/sources/meta-fullmetalupdate \
   ${BSPDIR}/sources/meta-fullmetalupdate-extra \
+  \
+  ${BSPDIR}/sources/meta-raspberrypi \
 "
