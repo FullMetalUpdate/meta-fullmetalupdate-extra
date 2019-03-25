@@ -21,5 +21,5 @@ AUTOREMOVE = "0"
 # Set screenused to 1 if the container uses the screen
 SCREENUSED = "1"
 
-inherit wiupdate_package_container_image
-inherit wiupdate_push_container_to_ostree
+inherit fullmetalupdate_package_container_image
+inherit fullmetalupdate_push_container_to_ostree

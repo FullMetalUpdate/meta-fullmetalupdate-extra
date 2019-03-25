@@ -4,4 +4,4 @@
 
 part /boot --source bootimg-partition --ondisk mmcblk0 --fstype=vfat --label boot --active --align 4096 --size 20
 part / --source otaimage --ondisk mmcblk0 --fstype=ext4 --label root --align 4096
-part /${APP_DIRECTORY} --ondisk mmcblk0 --fstype=ext4 --source rawcopy --sourceparams="file=${CONTAINERS_DIRECTORY}/wiupdate-containers-package-${MACHINE}.ext4" --label apps --active --align 4096
+part /${APP_DIRECTORY} --ondisk mmcblk0 --fstype=ext4 --source rawcopy --sourceparams="file=${CONTAINERS_DIRECTORY}/fullmetalupdate-containers-package-${MACHINE}.ext4" --label apps --active --align 4096
