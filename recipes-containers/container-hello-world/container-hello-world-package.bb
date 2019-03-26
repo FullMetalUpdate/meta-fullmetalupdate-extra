@@ -1,7 +1,8 @@
 # Copyright (C) 2019 Witekio
 # Released under the MIT license (see COPYING.MIT for the terms)
-DESCRIPTION = "A minimal image containing busybox"
-LICENSE = "CLOSED"
+DESCRIPTION = "hello-world OCI container: including a rootfs, an OCI configuration file, and a systemd service configuration"
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
 IMAGE_INSTALL = " \
     container-hello-world \
@@ -19,7 +20,7 @@ AUTOSTART = "0"
 AUTOREMOVE = "0"
 
 # Set screenused to 1 if the container uses the screen
-SCREENUSED = "1"
+SCREENUSED = "0"
 
 inherit fullmetalupdate_package_container_image
 inherit fullmetalupdate_push_container_to_ostree
