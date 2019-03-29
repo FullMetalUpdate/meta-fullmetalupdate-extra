@@ -4,5 +4,5 @@ Description=container-tensorflow-lite-label-image Service
 After=network.target
 
 [Service]
-WorkingDirectory=/apps/container-tensorflow-lite-label-image-package/
+WorkingDirectory=/apps/container-tensorflow-lite-label-image/
 ExecStart=/usr/bin/runc run container-tensorflow-lite-label-image
