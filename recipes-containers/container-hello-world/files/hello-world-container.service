@@ -4,5 +4,5 @@ Description=container-hello-world Service
 After=network.target
 
 [Service]
-WorkingDirectory=/apps/container-hello-world-package/
+WorkingDirectory=/apps/container-hello-world/
 ExecStart=/usr/bin/runc run container-hello-world
