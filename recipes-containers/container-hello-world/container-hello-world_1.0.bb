@@ -14,7 +14,7 @@ CONTAINER_STARTUP= "${THISDIR}/files/entry.sh"
 # Runc container configuration
 RUNC_CONFIG = "${THISDIR}/${MACHINE}/hello-world-config.json"
 # systemd container configuration
-SYSTEMD_CONFIG = "${THISDIR}/files/hello-world-container.service"
+SYSTEMD_CONFIG = "${THISDIR}/files/container-hello-world.service"
 
 # Set autostart to 1 if the container should be started automatically by systemd
 AUTOSTART = "0"
