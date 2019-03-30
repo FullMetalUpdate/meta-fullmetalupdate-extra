@@ -23,7 +23,7 @@ CONTAINER_STARTUP= "${THISDIR}/files/entry.sh"
 # Runc container configuration
 RUNC_CONFIG = "${THISDIR}/${MACHINE}/qt-evcs-config.json"
 # systemd container configuration
-SYSTEMD_CONFIG = "${THISDIR}/files/qt-evcs-container.service"
+SYSTEMD_CONFIG = "${THISDIR}/files/container-qt-evcs.service"
 
 # Set autostart to 1 if the container should be started automatically by systemd
 AUTOSTART = "1"
