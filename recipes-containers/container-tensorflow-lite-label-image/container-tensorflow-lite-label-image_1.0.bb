@@ -15,7 +15,7 @@ CONTAINER_STARTUP= "${THISDIR}/files/entry.sh"
 # Runc container configuration
 RUNC_CONFIG = "${THISDIR}/${MACHINE}/tensorflow-lite-label-image-config.json"
 # systemd container configuration
-SYSTEMD_CONFIG = "${THISDIR}/files/tensorflow-lite-label-image-container.service"
+SYSTEMD_CONFIG = "${THISDIR}/files/container-tensorflow-lite-label-image.service"
 
 # Set autostart to 1 if the container should be started automatically by systemd
 AUTOSTART = "0"
