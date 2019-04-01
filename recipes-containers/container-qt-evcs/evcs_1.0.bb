@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 
 S = "${WORKDIR}/git"
 SRC_URI = " \
-    git://github.com/Witekio/evcs-demo.git;branch=fullmetalupdate-demo;tag=v${PV}-step3 \
+    git://github.com/Witekio/evcs-demo.git;branch=fullmetalupdate-demo;tag=v${PV}-step1 \
 "
 
 DEPENDS = "qtquickcontrols2 \
