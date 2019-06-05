@@ -1,4 +1,4 @@
-MACHINE ??= 'raspberrypi'
+MACHINE ??= 'raspberrypi3'
 DISTRO ?= 'poky'
 PACKAGE_CLASSES ?= "package_rpm"
 EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
