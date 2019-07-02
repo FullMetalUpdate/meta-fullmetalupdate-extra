@@ -11,8 +11,7 @@ BASELAYERS ?= " \
 	${OEROOT}/sources/meta-fullmetalupdate \
 	${OEROOT}/sources/meta-fullmetalupdate-extra \
 	${OEROOT}/sources/meta-updater \
-	${OEROOT}/sources/meta-machinelearning \
-	${OEROOT}/sources/meta-st/meta-st-stm32mp \
+	${OEROOT}/sources/meta-st-stm32mp \
 	${OEROOT}/sources/meta-openembedded/meta-oe \
 	${OEROOT}/sources/meta-openembedded/meta-python \
 	${OEROOT}/sources/meta-openembedded/meta-filesystems \
