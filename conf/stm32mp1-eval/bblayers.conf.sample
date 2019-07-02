@@ -4,16 +4,16 @@ BBPATH = "${TOPDIR}"
 BSPDIR := "${@os.path.abspath(os.path.dirname(d.getVar('FILE', True)) + '/../..')}"
 
 BBFILES ?= ""
-BASELAYERS ?= " \
-	${OEROOT}/sources/poky/meta \
-	${OEROOT}/sources/poky/meta-poky \
-	${OEROOT}/sources/poky/meta-yocto-bsp \
-	${OEROOT}/sources/meta-fullmetalupdate \
-	${OEROOT}/sources/meta-fullmetalupdate-extra \
-	${OEROOT}/sources/meta-updater \
-	${OEROOT}/sources/meta-st-stm32mp \
-	${OEROOT}/sources/meta-openembedded/meta-oe \
-	${OEROOT}/sources/meta-openembedded/meta-python \
-	${OEROOT}/sources/meta-openembedded/meta-filesystems \
-	${OEROOT}/sources/meta-openembedded/meta-networking \
+BBLAYERS ?= " \
+	${BSPDIR}/sources/poky/meta \
+	${BSPDIR}/sources/poky/meta-poky \
+	${BSPDIR}/sources/poky/meta-yocto-bsp \
+	${BSPDIR}/sources/meta-fullmetalupdate \
+	${BSPDIR}/sources/meta-fullmetalupdate-extra \
+	${BSPDIR}/sources/meta-updater \
+	${BSPDIR}/sources/meta-st-stm32mp \
+	${BSPDIR}/sources/meta-openembedded/meta-oe \
+	${BSPDIR}/sources/meta-openembedded/meta-python \
+	${BSPDIR}/sources/meta-openembedded/meta-filesystems \
+	${BSPDIR}/sources/meta-openembedded/meta-networking \
 "
