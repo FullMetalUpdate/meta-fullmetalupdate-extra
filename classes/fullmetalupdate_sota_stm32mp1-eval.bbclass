@@ -3,7 +3,7 @@
 
 
 #see imx-base.inc - soft assignment not used when defining it here
-IMAGE_BOOT_FILES_sota += "KERNEL_IMAGE UBOOT_IMAGE DTS_FILES"
+IMAGE_BOOT_FILES_sota += ""
 
 OSTREE_BOOTLOADER ?= "u-boot"
 

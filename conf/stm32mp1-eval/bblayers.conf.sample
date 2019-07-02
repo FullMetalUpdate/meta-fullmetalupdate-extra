@@ -5,17 +5,15 @@ BSPDIR := "${@os.path.abspath(os.path.dirname(d.getVar('FILE', True)) + '/../..'
 
 BBFILES ?= ""
 BASELAYERS ?= " \
-    ${OEROOT}/layers/meta-openembedded/meta-oe \
-    ${OEROOT}/layers/meta-openembedded/meta-gnome \
-    ${OEROOT}/layers/meta-openembedded/meta-xfce \
-    ${OEROOT}/layers/meta-openembedded/meta-initramfs \
-    ${OEROOT}/layers/meta-openembedded/meta-multimedia \
-    ${OEROOT}/layers/meta-openembedded/meta-networking \
-    ${OEROOT}/layers/meta-openembedded/meta-webserver \
-    ${OEROOT}/layers/meta-openembedded/meta-filesystems \
-    ${OEROOT}/layers/meta-openembedded/meta-perl \
-    ${OEROOT}/layers/meta-openembedded/meta-python \
-    ${OEROOT}/layers/meta-fullmetalupdate \
-    ${OEROOT}/layers/meta-fullmetalupdate-extra \
-    ${OEROOT}/layers/meta-updater \
-    ${OEROOT}/layers/meta-machinelearning \
+	${OEROOT}/sources/poky/meta \
+	${OEROOT}/sources/poky/meta-poky \
+	${OEROOT}/sources/poky/meta-yocto-bsp \
+	${OEROOT}/sources/meta-fullmetalupdate \
+	${OEROOT}/sources/meta-fullmetalupdate-extra \
+	${OEROOT}/sources/meta-updater \
+	${OEROOT}/sources/meta-machinelearning \
+	${OEROOT}/sources/meta-st/meta-st-stm32mp \
+	${OEROOT}/sources/meta-openembedded/meta-oe \
+	${OEROOT}/sources/meta-openembedded/meta-python \
+	${OEROOT}/sources/meta-openembedded/meta-filesystems \
+	${OEROOT}/sources/meta-openembedded/meta-networking \
