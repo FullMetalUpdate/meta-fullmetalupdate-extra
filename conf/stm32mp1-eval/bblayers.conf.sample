@@ -16,3 +16,4 @@ BASELAYERS ?= " \
 	${OEROOT}/sources/meta-openembedded/meta-python \
 	${OEROOT}/sources/meta-openembedded/meta-filesystems \
 	${OEROOT}/sources/meta-openembedded/meta-networking \
+"
