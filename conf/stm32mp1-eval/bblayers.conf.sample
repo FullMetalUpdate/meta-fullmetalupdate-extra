@@ -16,4 +16,5 @@ BBLAYERS ?= " \
 	${BSPDIR}/sources/meta-openembedded/meta-python \
 	${BSPDIR}/sources/meta-openembedded/meta-filesystems \
 	${BSPDIR}/sources/meta-openembedded/meta-networking \
+	${BSPDIR}/sources/meta-qt5 \
 "
