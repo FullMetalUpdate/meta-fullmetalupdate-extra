@@ -10,3 +10,5 @@ OSTREE_BOOTLOADER ?= "u-boot"
 OSTREE_KERNEL_ARGS ?= "rw rootwait"
 
 IMAGE_FSTYPES_remove_sota = "garagesign garagecheck"
+
+PREFERRED_PROVIDER_virtual/bootloader_sota ?= "u-boot-stm32mp_2018.11"
