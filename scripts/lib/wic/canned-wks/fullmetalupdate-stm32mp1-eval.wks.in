@@ -1,31 +1,12 @@
 # short-description: Create STM32MP1 card image
 # long-description: Creates a partitioned SD card image for use with
-# Boot files are located in the first vfat partition.
+# Boot files are located in the first ext4 partition.
 
+part tf1 --source rawcopy --sourceparams="file=tf-a-stm32mp157c-ev1-trusted.stm32" --ondisk mmcblk --align 17
+part tf2 --source rawcopy --sourceparams="file=tf-a-stm32mp157c-ev1-trusted.stm32" --ondisk mmcblk --align 273
+part u-boot1 --source rawcopy --sourceparams="file=u-boot-stm32mp157c-ev1-trusted.stm32" --ondisk mmcblk --align 529
 
-part tf --source rawcopy --sourceparams="file=tf-a-stm32mp157c-ev1-trusted.stm32" --ondisk mmcblk0 --no-table --align 1
-part u-boot --source rawcopy --sourceparams="file=u-boot-stm32mp157c-ev1-trusted.stm32" --ondisk mmcblk0 --no-table --align 69
+part /bootfs --source bootimg-partition --ondisk mmcblk --fstype=ext4 --label bootfs --active --align 8192 --size 16
+part / --source rootfs --ondisk mmcblk --fstype=ext4 --label rootfs --align 4096
 
-part tf1 --source rawcopy --sourceparams="file=tf-a-stm32mp157c-ev1-trusted.stm32" --ondisk mmcblk0 --align 4096
-part tf2 --source rawcopy --sourceparams="file=tf-a-stm32mp157c-ev1-trusted.stm32" --ondisk mmcblk0 --align 4096
-part u-boot1 --source rawcopy --sourceparams="file=u-boot-stm32mp157c-ev1-trusted.stm32" --ondisk mmcblk0 --align 4096
-
-part /boot --source rawcopy --ondisk mmcblk0 --sourceparams="file=st-image-bootfs-openstlinux-weston-stm32mp1-eval.ext4" --label bootfs --active --align 4096 --size 64
-part /vendor --source rawcopy --ondisk mmcblk0 --sourceparams="file=st-image-vendorfs-openstlinux-weston-stm32mp1-eval.ext4" --label vendorfs --active --align 4096 --size 16
-part / --source rawcopy --ondisk mmcblk0 --sourceparams="file=st-image-weston-openstlinux-weston-stm32mp1-eval.ext4" --label rootfs --align 4096 --size 751
-part /usr/local --source rawcopy--ondisk mmcblk0 --sourceparams="file=st-image-userfs-openstlinux-weston-stm32mp1-eval.ext4" --label userfs --align 4096 --size 704
-
-part /${APP_DIRECTORY} --ondisk mmcblk0 --fstype=ext4 --source rawcopy --sourceparams="file=${CONTAINERS_DIRECTORY}/fullmetalupdate-containers-package-${MACHINE}.ext4" --label apps --active --align 4096
-
-
-## STM layout file content:
-#Opt	Id		Name		Type		IP		Offset		Binary
-#-		0x01	fsbl1-boot	Binary		none	0x0			tf-a-stm32mp157c-ev1-trusted.stm32
-#-		0x03	ssbl-boot	Binary		none	0x0			u-boot-stm32mp157c-ev1-trusted.stm32
-#P		0x04	fsbl1		Binary		mmc0	0x00004400	tf-a-stm32mp157c-ev1-trusted.stm32
-#P		0x05	fsbl2		Binary		mmc0	0x00044400	tf-a-stm32mp157c-ev1-trusted.stm32
-#P		0x06	ssbl		Binary		mmc0	0x00084400	u-boot-stm32mp157c-ev1-trusted.stm32
-#P		0x21	bootfs		System		mmc0	0x00284400	st-image-bootfs-openstlinux-weston-stm32mp1-eval.ext4
-#P		0x22	vendorfs	FileSystem	mmc0	0x04284400	st-image-vendorfs-openstlinux-weston-stm32mp1-eval.ext4
-#P		0x23	rootfs		FileSystem	mmc0	0x05284400	st-image-weston-openstlinux-weston-stm32mp1-eval.ext4
-#P		0x24	userfs		FileSystem	mmc0	0x340F0400	st-image-userfs-openstlinux-weston-stm32mp1-eval.ext4
+bootloader --ptable gpt
