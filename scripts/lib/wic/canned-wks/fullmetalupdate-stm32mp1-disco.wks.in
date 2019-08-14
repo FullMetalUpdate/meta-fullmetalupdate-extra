@@ -1,0 +1,12 @@
+# short-description: Create STM32MP1 card image
+# long-description: Creates a partitioned SD card image for use with
+# Boot files are located in the first ext4 partition.
+
+part tf1 --source rawcopy --sourceparams="file=tf-a-stm32mp157c-dk2-trusted.stm32" --ondisk mmcblk0 --align 17 --fsoptions "noauto"
+part tf2 --source rawcopy --sourceparams="file=tf-a-stm32mp157c-dk2-trusted.stm32" --ondisk mmcblk0 --align 273 --fsoptions "noauto"
+part u-boot1 --source rawcopy --sourceparams="file=u-boot-stm32mp157c-dk2-trusted.stm32" --ondisk mmcblk0 --align 529 --fsoptions "noauto"
+
+part /boot --source bootimg-partition --ondisk mmcblk0 --fstype=ext4 --label bootfs --active --align 8192 --size 16
+part / --source otaimage --ondisk mmcblk0 --fstype=ext4 --label rootfs --align 4096
+
+bootloader --ptable gpt

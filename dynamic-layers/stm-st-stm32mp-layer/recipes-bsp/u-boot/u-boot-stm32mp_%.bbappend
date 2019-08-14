@@ -4,6 +4,6 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${MACHINE}:${THISDIR}/files:"
 
 
 
-do_configure_append_stm32mp1-eval() {
+do_configure_append_stm32mp1-disco() {
 
 }
