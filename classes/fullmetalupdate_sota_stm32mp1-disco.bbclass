@@ -3,7 +3,7 @@
 
 
 #see imx-base.inc - soft assignment not used when defining it here
-IMAGE_BOOT_FILES_sota += "stm32-bootfiles/* \
+IMAGE_BOOT_FILES_sota += "stm32mp1-bootfiles/* \
 						stm32mp157c-dk2.dtb \
 						zImage"
 
