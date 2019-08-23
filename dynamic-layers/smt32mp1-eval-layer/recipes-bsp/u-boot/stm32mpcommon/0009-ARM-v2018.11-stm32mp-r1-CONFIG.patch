@@ -1,0 +1,13 @@
+diff --git a/configs/stm32mp15_trusted_defconfig b/configs/stm32mp15_trusted_defconfig
+index e41506b..635d218 100644
+--- a/configs/stm32mp15_trusted_defconfig
++++ b/configs/stm32mp15_trusted_defconfig
+@@ -10,7 +10,7 @@ CONFIG_SYS_PROMPT="STM32MP> "
+ # CONFIG_CMD_IMI is not set
+ # CONFIG_CMD_XIMG is not set
+ # CONFIG_CMD_EXPORTENV is not set
+-# CONFIG_CMD_IMPORTENV is not set
++CONFIG_CMD_IMPORTENV=y
+ CONFIG_CMD_MEMINFO=y
+ CONFIG_CMD_MEMTEST=y
+ CONFIG_CMD_ADC=y
