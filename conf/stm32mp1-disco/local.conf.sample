@@ -1,4 +1,4 @@
-MACHINE ??= 'stm32mp1-eval'
+MACHINE ??= 'stm32mp1-disco'
 DISTRO ?= 'poky'
 PACKAGE_CLASSES ?= "package_rpm"
 EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
