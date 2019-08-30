@@ -1,4 +1,4 @@
-# short-description: Create STM32MP1 card image
+# short-description: Create STM32MP1-Disco card image
 # long-description: Creates a partitioned SD card image for use with
 # Boot files are located in the first ext4 partition.
 
