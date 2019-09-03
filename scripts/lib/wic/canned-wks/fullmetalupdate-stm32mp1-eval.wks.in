@@ -11,5 +11,3 @@ part / --source otaimage --ondisk mmcblk0 --fstype=ext4 --label rootfs --align 4
 part /${APP_DIRECTORY} --ondisk mmcblk --fstype=ext4 --source rawcopy --sourceparams="file=${CONTAINERS_DIRECTORY}/fullmetalupdate-containers-package-${MACHINE}.ext4" --label apps --active --align 4096
 
 bootloader --ptable gpt
-
-
