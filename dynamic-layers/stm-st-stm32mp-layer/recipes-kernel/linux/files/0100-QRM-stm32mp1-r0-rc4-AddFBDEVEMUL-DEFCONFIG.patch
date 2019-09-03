@@ -1,0 +1,12 @@
+diff --git a/arch/arm/configs/fragment-02-multiv7_addons.config b/arch/arm/configs/fragment-02-multiv7_addons.config
+index cabb3b3..b3f2725 100644
+--- a/arch/arm/configs/fragment-02-multiv7_addons.config
++++ b/arch/arm/configs/fragment-02-multiv7_addons.config
+@@ -296,6 +296,7 @@ CONFIG_DRM_SII902X=y
+ #
+ CONFIG_DRM_STM=y
+ CONFIG_DRM_STM_DSI=y
++CONFIG_DRM_FBDEV_EMULATION=y
+ 
+ #
+ # Backlight support
