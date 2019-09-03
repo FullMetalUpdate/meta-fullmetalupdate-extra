@@ -23,22 +23,22 @@ do_install() {
     cp -R --no-dereference --preserve=mode,links ${S}/Assets ${D}${datadir}/${P}
     cp -R --no-dereference --preserve=mode,links ${S}/Translation ${D}${datadir}/${P}
 
-    install -d ${D}${bindir}
+    install -d ${D}${base_bindir}
     echo "#!/bin/sh" > ${D}${bindir}/DemoQtWS
-    echo "export QML2_IMPORT_PATH=${datadir}/${P}" >> ${D}${bindir}/DemoQtWS
-    echo "export QML2_IMPORT_PATH=${datadir}/${P}" >> ${D}${bindir}/DemoQtWS
+    echo "export QML2_IMPORT_PATH=${datadir}/${P}" >> ${D}${base_bindir}/DemoQtWS
+    echo "export QML2_IMPORT_PATH=${datadir}/${P}" >> ${D}${base_bindir}/DemoQtWS
 
-    echo "export QT_QPA_EGLFS_HEIGHT=768" >> ${D}${bindir}/DemoQtWS
-    echo "export QT_QPA_EGLFS_WIDTH=1024" >> ${D}${bindir}/DemoQtWS
-    echo "export QT_QPA_EGLFS_PHYSICAL_HEIGHT=150" >> ${D}${bindir}/DemoQtWS
-    echo "export QT_QPA_EGLFS_PHYSICAL_WIDTH=205" >> ${D}${bindir}/DemoQtWS
+    echo "export QT_QPA_EGLFS_HEIGHT=768" >> ${D}${base_bindir}/DemoQtWS
+    echo "export QT_QPA_EGLFS_WIDTH=1024" >> ${D}${base_bindir}/DemoQtWS
+    echo "export QT_QPA_EGLFS_PHYSICAL_HEIGHT=150" >> ${D}${base_bindir}/DemoQtWS
+    echo "export QT_QPA_EGLFS_PHYSICAL_WIDTH=205" >> ${D}${base_bindir}/DemoQtWS
 
-    echo "export QT_QPA_PLATFORM=eglfs" >> ${D}${bindir}/DemoQtWS
+    echo "export QT_QPA_PLATFORM=eglfs" >> ${D}${base_bindir}/DemoQtWS
 
-    echo "export QT_QPA_EVDEV_TOUCHSCREEN_PARAMETERS='/dev/input/event0'" >> ${D}${bindir}/DemoQtWS
+    echo "export QT_QPA_EVDEV_TOUCHSCREEN_PARAMETERS='/dev/input/event0'" >> ${D}${base_bindir}/DemoQtWS
 
-    echo "${datadir}/${P}/DemoQtWS" >> ${D}${bindir}/DemoQtWS
-    chmod +x ${D}${bindir}/DemoQtWS
+    echo "${datadir}/${P}/DemoQtWS" >> ${D}${base_bindir}/DemoQtWS
+    chmod +x ${D}${base_bindir}/DemoQtWS
 }
 
 FILES_${PN}-dbg += "${datadir}/${P}/.debug"
