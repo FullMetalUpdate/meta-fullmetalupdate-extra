@@ -19,6 +19,7 @@ CONF_VERSION = "1"
 HOSTTOOLS_NONFATAL += " ostree ostree-push sshpass"
 DL_DIR ?= "${BSPDIR}/downloads/"
 ACCEPT_FSL_EULA = "1"
+ACCEPT_EULA_stm32mp1-disco = "1"
 
 TMPDIR = "${TOPDIR}/tmp/${DISTRO}"
 
