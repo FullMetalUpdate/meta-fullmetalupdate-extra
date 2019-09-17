@@ -1,0 +1,13 @@
+# short-description: Create STM32MP1-Eval card image
+# long-description: Creates a partitioned SD card image for use with
+# Boot files are located in the first ext4 partition.
+
+part tf1 --source rawcopy --fstype=ext4 --part-name=fsbl1 --sourceparams="file=tf-a-stm32mp157c-ev1-trusted.stm32" --ondisk mmcblk0 --align 17 --fsoptions "noauto"
+part tf2 --source rawcopy --fstype=ext4 --part-name=fsbl2 --sourceparams="file=tf-a-stm32mp157c-ev1-trusted.stm32" --ondisk mmcblk0 --align 273 --fsoptions "noauto"
+part u-boot1 --source rawcopy --fstype=ext4 --part-name=ssbl --sourceparams="file=u-boot-stm32mp157c-ev1-trusted.stm32" --ondisk mmcblk0 --align 529 --fsoptions "noauto"
+
+part /boot --source bootimg-partition --ondisk mmcblk0 --fstype=ext4 --label bootfs --active --align 8192 --size 16
+part / --source otaimage --ondisk mmcblk0 --fstype=ext4 --label rootfs --align 4096
+part /${APP_DIRECTORY} --ondisk mmcblk --fstype=ext4 --source rawcopy --sourceparams="file=${CONTAINERS_DIRECTORY}/fullmetalupdate-containers-package-${MACHINE}.ext4" --label apps --active --align 4096
+
+bootloader --ptable gpt
