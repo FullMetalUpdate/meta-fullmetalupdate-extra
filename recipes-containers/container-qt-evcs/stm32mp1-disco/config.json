@@ -1,0 +1,20 @@
+{
+    "device": "/dev/dri/card0",
+    "hwcursor": false,
+    "pbuffers": false,
+    "outputs": [
+       { 
+        "_comment": "NOTE: Should be checked/removed/configured...",
+         "name": "DSI1",
+         "mode": "preferred",
+         "physicalWidth" : 150,
+         "physicalHeight" : 205,
+         "touchDevice": "/dev/input/event0"
+       },
+       { 
+        "_comment": "NOTE: Should be configred properly...",
+        "name": "HDMI1",
+        "mode": "preferred"
+       }
+     ]
+}

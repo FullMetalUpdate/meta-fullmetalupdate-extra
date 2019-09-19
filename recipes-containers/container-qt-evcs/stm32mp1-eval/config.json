@@ -1,0 +1,13 @@
+{
+    "device": "/dev/dri/card0",
+    "hwcursor": false,
+    "pbuffers": false,
+    "outputs": [
+       { "name": "DSI1",
+         "mode": "preferred",
+         "physicalWidth" : 68,
+         "physicalHeight" : 122,
+         "touchDevice": "/dev/input/event1"
+       }
+     ]
+}
