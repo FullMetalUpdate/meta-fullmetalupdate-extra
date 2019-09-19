@@ -4,9 +4,12 @@ DESCRIPTION = "QT Electric Vehicle Charging Station"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
-
 S = "${WORKDIR}/git"
-SRC_URI = " \
+SRC_URI_stm32mp1-eval = " \
+    git://github.com/pjgorka88/evcs-demo.git;branch=stm32mp1-eval;tag=v${PV}-stm32mp1-eval \
+"
+
+SRC_URI_stm32mp1-disco = " \
     git://github.com/Witekio/evcs-demo.git;branch=fullmetalupdate-demo;tag=v${PV}-step1 \
 "
 
@@ -22,21 +25,15 @@ do_install() {
     cp ${S}/*.qml ${D}${datadir}/${P}
     cp -R --no-dereference --preserve=mode,links ${S}/Assets ${D}${datadir}/${P}
     cp -R --no-dereference --preserve=mode,links ${S}/Translation ${D}${datadir}/${P}
-
     install -d ${D}${base_bindir}
-    echo "#!/bin/sh" > ${D}${bindir}/DemoQtWS
-    echo "export QML2_IMPORT_PATH=${datadir}/${P}" >> ${D}${base_bindir}/DemoQtWS
-    echo "export QML2_IMPORT_PATH=${datadir}/${P}" >> ${D}${base_bindir}/DemoQtWS
 
-    echo "export QT_QPA_EGLFS_HEIGHT=768" >> ${D}${base_bindir}/DemoQtWS
-    echo "export QT_QPA_EGLFS_WIDTH=1024" >> ${D}${base_bindir}/DemoQtWS
-    echo "export QT_QPA_EGLFS_PHYSICAL_HEIGHT=150" >> ${D}${base_bindir}/DemoQtWS
-    echo "export QT_QPA_EGLFS_PHYSICAL_WIDTH=205" >> ${D}${base_bindir}/DemoQtWS
-
+    cp ${THISDIR}/${MACHINE}/config.json ${D}${datadir}/${P}/config.json
+    echo "#!/bin/sh" > ${D}${base_bindir}/DemoQtWS
+    echo "export QML2_IMPORT_PATH=${datadir}/${P}" >> ${D}${base_bindir}/DemoQtWS
+    echo "export QT_QPA_EGLFS_KMS_CONFIG=${datadir}/${P}/config.json" >> ${D}${base_bindir}/DemoQtWS
+    echo "export QT_QPA_EGLFS_ALWAYS_SET_MODE=1" >> ${D}${base_bindir}/DemoQtWS
     echo "export QT_QPA_PLATFORM=eglfs" >> ${D}${base_bindir}/DemoQtWS
-
-    echo "export QT_QPA_EVDEV_TOUCHSCREEN_PARAMETERS='/dev/input/event0'" >> ${D}${base_bindir}/DemoQtWS
-
+    
     echo "${datadir}/${P}/DemoQtWS" >> ${D}${base_bindir}/DemoQtWS
     chmod +x ${D}${base_bindir}/DemoQtWS
 }

@@ -1,13 +1,23 @@
+From cb0e97621b9cc2bfe9e3ef45790c5027e557ce87 Mon Sep 17 00:00:00 2001
+From: Pawel Gorka <pgorka@witekio.com>
+Date: Wed, 28 Aug 2019 09:45:01 +0000
+Subject: [PATCH] stm32mp15_trusted_defconfig set env patch generated with devtool
+
+---
+ configs/stm32mp15_trusted_defconfig | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
 diff --git a/configs/stm32mp15_trusted_defconfig b/configs/stm32mp15_trusted_defconfig
-index e41506b..635d218 100644
+index e41506b..f143104 100644
 --- a/configs/stm32mp15_trusted_defconfig
 +++ b/configs/stm32mp15_trusted_defconfig
-@@ -10,7 +10,7 @@ CONFIG_SYS_PROMPT="STM32MP> "
+@@ -9,8 +9,7 @@ CONFIG_SYS_PROMPT="STM32MP> "
+ # CONFIG_CMD_ELF is not set
  # CONFIG_CMD_IMI is not set
  # CONFIG_CMD_XIMG is not set
- # CONFIG_CMD_EXPORTENV is not set
+-# CONFIG_CMD_EXPORTENV is not set
 -# CONFIG_CMD_IMPORTENV is not set
-+CONFIG_CMD_IMPORTENV=y
++CONFIG_CMD_EXPORTENV=y
  CONFIG_CMD_MEMINFO=y
  CONFIG_CMD_MEMTEST=y
  CONFIG_CMD_ADC=y

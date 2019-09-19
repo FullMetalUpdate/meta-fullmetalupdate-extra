@@ -8,7 +8,6 @@ include ${PN}_${MACHINE}.inc
 
 IMAGE_INSTALL = " \
     evcs \
-    evcs-tools \
     qtlocation \
     qtvirtualkeyboard \
     qtmultimedia \
