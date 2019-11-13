@@ -1,0 +1,13 @@
+diff --git i/include/configs/imx8mq_evk.h w/include/configs/imx8mq_evk.h
+index 6cff7fea2b1e..8a3a5b0a1d4c 100644
+--- i/include/configs/imx8mq_evk.h
++++ w/include/configs/imx8mq_evk.h
+@@ -304,6 +304,8 @@
+ #define CONFIG_IMX_VIDEO_SKIP
+ #endif
+ 
++#include "update_common.h"
++
+ #if defined(CONFIG_ANDROID_SUPPORT)
+ #include "imx8mq_evk_android.h"
+ #elif defined (CONFIG_ANDROID_THINGS_SUPPORT)
