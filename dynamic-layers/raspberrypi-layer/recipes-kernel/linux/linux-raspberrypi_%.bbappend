@@ -377,7 +377,7 @@ do_configure_append_sota() {
     kernel_configure_variable USB_PEGASUS n
     kernel_configure_variable USB_RTL8150 n
     kernel_configure_variable USB_RTL8152 n
-    kernel_configure_variable USB_LAN78XX n
+    kernel_configure_variable USB_LAN78XX y
     kernel_configure_variable USB_NET_AX8817X n
     kernel_configure_variable USB_NET_AX88179_178A n
     kernel_configure_variable USB_NET_CDCETHER n
