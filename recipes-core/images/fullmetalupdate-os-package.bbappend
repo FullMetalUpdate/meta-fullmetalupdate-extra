@@ -5,4 +5,5 @@ require ${PN}_${MACHINE}.inc
 IMAGE_INSTALL_append = " \
     mdns \
     libnss-mdns \
+    kernel-modules \
 "
