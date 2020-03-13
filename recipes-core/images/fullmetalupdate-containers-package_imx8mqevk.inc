@@ -2,4 +2,4 @@
 # Released under the MIT license (see COPYING.MIT for the terms)
 PREINSTALLED_CONTAINERS_LIST_append = "container-hello-world"
 
-IMAGE_ROOTFS_EXTRA_SPACE = "314572"
+IMAGE_ROOTFS_EXTRA_SPACE = "629504"
