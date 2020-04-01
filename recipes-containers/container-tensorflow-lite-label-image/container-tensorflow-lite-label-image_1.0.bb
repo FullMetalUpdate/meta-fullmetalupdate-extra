@@ -10,6 +10,7 @@ IMAGE_INSTALL = " \
     tensorflow-lite \
     tensorflow-lite-staticdev \
     tensorflow-lite-examples \
+    busybox \
 "
 
 # Container start up file
