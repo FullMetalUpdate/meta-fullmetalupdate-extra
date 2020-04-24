@@ -23,4 +23,4 @@ ACCEPT_FSL_EULA = "1"
 TMPDIR = "${TOPDIR}/tmp/${DISTRO}"
 
 HAWKBIT_CONFIG_FILE ?= "/home/docker/config.cfg"
-OSTREE_BRANCHNAME ?= "fullmetalupdate-os"
+OSTREE_BRANCHNAME ?= "fullmetalupdate-os-${MACHINE}"
