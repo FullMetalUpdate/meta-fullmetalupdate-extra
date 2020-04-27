@@ -1,6 +1,5 @@
 # Copyright (C) 2019 Witekio
 # Released under the MIT license (see COPYING.MIT for the terms)
-require conf/machine/include/utilities.inc
 
 EXTRA_IMAGEDEPENDS_append_sota = " imx-bootfiles"
 
