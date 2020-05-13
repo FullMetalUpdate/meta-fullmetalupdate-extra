@@ -1,0 +1,25 @@
+From 25a4e48c4a1c957698b3dffbe783b1255a6c6d22 Mon Sep 17 00:00:00 2001
+From: antznin <agodard@witekio.com>
+Date: Wed, 13 May 2020 12:06:33 +0200
+Subject: [PATCH] Change camera id
+
+---
+ Home.qml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Home.qml b/Home.qml
+index dbb89a6..120459a 100644
+--- a/Home.qml
++++ b/Home.qml
+@@ -27,7 +27,7 @@ Page {
+ 
+     Camera {
+         id: camera
+-        deviceId: QtMultimedia.defaultCamera.deviceId
++        deviceId: QtMultimedia.availableCameras[2].deviceId
+         captureMode: Camera.CaptureViewfinder
+         property bool availableCamera:  QtMultimedia.availableCameras.length>0
+         viewfinder.resolution: resolution
+-- 
+2.17.1
+

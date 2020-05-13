@@ -4,6 +4,7 @@ wIC_CREATE_EXTRA_ARGS_append = " --no-fstab-update "
 
 IMAGE_INSTALL_append = " \
     kernel-module-imx-gpu-viv \
+    kernel-modules \
 "
 
 # We override the kernel device tree so that only one is shipped in the update. This

@@ -4,7 +4,6 @@ DESCRIPTION = "TensorFlow Lite and Qt/QML: object detection example"
 LICENSE = "GPLv3.0"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/LGPL-3.0;md5=bfccfe952269fff2b407dd11f2f3083b"
 
-
 S = "${WORKDIR}/git"
 SRC_URI = " \
     git://github.com/Witekio/RaspberryPi_TFLite_Qt.git \
@@ -19,6 +18,8 @@ DEPENDS = "qtquickcontrols2 \
            "
 
 require recipes-qt/qt5/qt5.inc
+
+include ${PN}_${MACHINE}.inc
 
 do_install() {
     install -d ${D}${datadir}/${P}
