@@ -1,4 +1,4 @@
-bootiaddr=0x40000000
+bootiaddr=0x40020000
 
 bootmmc=1:2
 
