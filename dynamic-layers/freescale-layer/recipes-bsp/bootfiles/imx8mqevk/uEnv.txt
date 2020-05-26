@@ -12,10 +12,11 @@ bootcmd_otenv=ext2load mmc ${bootmmc} $loadaddr /boot/loader/uEnv.txt; env impor
 
 bootcmd_load_kernel=ext4load mmc ${bootmmc} $loadaddr "/boot"$kernel_image
 bootcmd_load_ramdisk=ext4load mmc ${bootmmc} $bootiaddr "/boot"$ramdisk_image
+bootcmd_load_fdt=ext4load mmc ${bootmmc} $fdt_addr "/boot"$fdt_file
 
 bootcmd_run=booti ${loadaddr} ${bootiaddr} ${fdt_addr}
 
-bootcmd_cond=run findfdt; run loadfdt; setenv bootargs ${bootargs} ${bootargs_root} ${bootargs_extra}; run bootcmd_load_kernel; run bootcmd_load_ramdisk; run bootcmd_run
+bootcmd_cond=setenv bootargs ${bootargs} ${bootargs_root} ${bootargs_extra}; run bootcmd_load_fdt; run bootcmd_load_kernel; run bootcmd_load_ramdisk; run bootcmd_run
 
 set_rollback_args=setenv success 0; setexpr trials 0
 
@@ -46,6 +47,7 @@ bootcmd=echo "Running init..."; \
                 setenv bootargs $bootargs2; \
                 setenv kernel_image $kernel_image2; \
                 setenv ramdisk_image $ramdisk_image2; \
+                setenv fdt_file $fdt_file2; \
             else \
                 echo "Image failed five times and there is no rollback image. Exiting into U-boot"; \
                 exit; \
