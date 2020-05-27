@@ -1,8 +1,0 @@
-[Unit]
-Description=container-qt-evcs Service
-# wait for network to come up before we run
-After=network.target
-
-[Service]
-WorkingDirectory=/apps/container-qt-evcs/
-ExecStart=/usr/bin/runc run container-qt-evcs

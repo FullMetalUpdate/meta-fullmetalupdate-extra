@@ -1,8 +1,0 @@
-[Unit]
-Description=container-tensorflow-lite-label-image Service
-# wait for network to come up before we run
-After=network.target
-
-[Service]
-WorkingDirectory=/apps/container-tensorflow-lite-label-image/
-ExecStart=/usr/bin/runc run container-tensorflow-lite-label-image
