@@ -25,3 +25,6 @@ TMPDIR = "${TOPDIR}/tmp/${DISTRO}"
 HAWKBIT_CONFIG_FILE ?= "/home/docker/config.cfg"
 OSTREE_BRANCHNAME ?= "fullmetalupdate-os-${MACHINE}"
 OSTREE_DEPLOY_DEVICETREE = "1"
+
+PREFERRED_RPROVIDER_u-boot-fw-utils = "u-boot-fw-utils"
+PREFERRED_PROVIDER_u-boot-fw-utils = "u-boot-fw-utils"
