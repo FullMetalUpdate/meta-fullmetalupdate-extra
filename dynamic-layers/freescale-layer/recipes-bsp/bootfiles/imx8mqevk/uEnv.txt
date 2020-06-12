@@ -6,14 +6,51 @@ blkcache configure 8 8
 
 bootargs_root=ostree_root=/dev/mmcblk1p2 root=/dev/ram0 ramdisk_size=8192
 
-bootargs_extra=rw rootfstype=ext4 consoleblank=0 vt.global_cursor_default=0 video=mxcfb0:dev=ldb,bpp=32,if=RGB32
-
+bootargs_extra=rootfstype=ext4 consoleblank=0 vt.global_cursor_default=0 video=mxcfb0:dev=ldb,bpp=32,if=RGB32
 
 bootcmd_otenv=ext2load mmc ${bootmmc} $loadaddr /boot/loader/uEnv.txt; env import -t $loadaddr $filesize
 
 bootcmd_load_kernel=ext4load mmc ${bootmmc} $loadaddr "/boot"$kernel_image
 bootcmd_load_ramdisk=ext4load mmc ${bootmmc} $bootiaddr "/boot"$ramdisk_image
+bootcmd_load_fdt=ext4load mmc ${bootmmc} $fdt_addr "/boot"$fdt_file
 
 bootcmd_run=booti ${loadaddr} ${bootiaddr} ${fdt_addr}
 
-bootcmd=run findfdt; run loadfdt; run bootcmd_otenv; setenv bootargs ${bootargs} ${bootargs_root} ${bootargs_extra}; run bootcmd_load_kernel; run bootcmd_load_ramdisk; run bootcmd_run
+bootcmd_cond=setenv bootargs ${bootargs} ${bootargs_root} ${bootargs_extra}; run bootcmd_load_fdt; run bootcmd_load_kernel; run bootcmd_load_ramdisk; run bootcmd_run
+
+set_rollback_args=setenv success 0; setexpr trials 0
+
+initialize_init_var=if env exists init_var; then \
+                        echo "Initial var already set"; \
+                    else \
+                        echo "Setting initial variables"; \
+                        run set_rollback_args; setenv init_var 1; saveenv; \
+                    fi
+
+print_vars=echo "success = $success and trials = $trials"
+
+bootcmd=echo "Running init..."; \
+        run initialize_init_var; run print_vars; \
+        run bootcmd_otenv; \
+        if test $success = 1; then \
+            echo "Deployment successful, booting..."; \
+            run bootcmd_cond; \
+        elif test $trials < 5; then \
+            if test $trials != 0; then \
+                echo "Last boot failed. Trying again..."; \
+            fi \
+            setexpr trials $trials + 1; saveenv; \
+            run bootcmd_cond; \
+        else \
+            if env exists bootargs2; then \
+                echo "Deployment failed. Rollbacking..."; \
+                setenv bootargs $bootargs2; \
+                setenv kernel_image $kernel_image2; \
+                setenv ramdisk_image $ramdisk_image2; \
+                setenv fdt_file $fdt_file2; \
+            else \
+                echo "Image failed five times and there is no rollback image. Exiting into U-boot"; \
+                exit; \
+            fi \
+            run bootcmd_cond; \
+        fi

@@ -1,0 +1,15 @@
+[Unit]
+Description=Example container using systemd-notify
+# wait for network to come up before we run
+After=network.target
+
+[Service]
+Type=notify
+NotifyAccess=all
+WorkingDirectory=/apps/container-sd-notify/
+ExecStart=/usr/bin/runc run container-sd-notify
+ExecStartPost=/bin/sh /usr/fullmetalupdate/scripts/send_feedback.sh
+ExecStopPost=/bin/sh /usr/fullmetalupdate/scripts/send_feedback.sh
+# After this timeout, systemd will consider the startup as failed and stop the 
+# container, and the container will rollback to its previous version
+TimeoutStartSec=35s

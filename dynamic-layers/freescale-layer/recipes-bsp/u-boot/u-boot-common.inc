@@ -3,7 +3,6 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${MACHINE}:${THISDIR}/files:"
 
 SRC_URI_append = " file://update_common.h"
-SRC_URI_append_imx8mqevk = " file://imx8mqevk_update.patch"
 
 S = "${WORKDIR}/git"
 
