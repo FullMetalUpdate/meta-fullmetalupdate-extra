@@ -26,3 +26,5 @@ TMPDIR = "${TOPDIR}/tmp/${DISTRO}"
 HAWKBIT_CONFIG_FILE ?= "/home/docker/config.cfg"
 OSTREE_BRANCHNAME ?= "fullmetalupdate-os-${MACHINE}"
 LICENSE_FLAGS_WHITELIST = "commercial_faac"
+
+PREFERRED_VERSION_fullmetalupdate = "1.0.1"
