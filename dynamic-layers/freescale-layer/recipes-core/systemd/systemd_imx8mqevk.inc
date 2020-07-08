@@ -16,5 +16,5 @@ do_install_append() {
     install -d ${D}/etc/systemd/network/
     install -m 0644 ${WORKDIR}/wired.network ${D}/etc/systemd/network/
 
-    rm ${D}${sysconfdir}/systemd/system/getty.target.wants/getty@tty1.service
+    rm ${D}${libdir}/systemd/system/getty@.service
 }

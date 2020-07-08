@@ -1,8 +1,8 @@
 # Copyright (C) 2019 Witekio
 # Released under the MIT license (see COPYING.MIT for the terms)
-include u-boot-common.inc
+FILESEXTRAPATHS_prepend := "${THISDIR}/${MACHINE}:"
 
-SRC_URI += " \
+SRC_URI_append = " \
     file://fw_env.config \
 "
 
