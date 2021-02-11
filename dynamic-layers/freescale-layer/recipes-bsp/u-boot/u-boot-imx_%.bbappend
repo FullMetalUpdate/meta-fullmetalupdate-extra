@@ -6,7 +6,6 @@ require ${PN}_${MACHINE}.inc
 
 SRC_URI_append_imx8mqevk = " \
     file://fullmetalupdate.bmp \
-    file://imx8mqevk_update.patch \
 "
 
 do_configure_append_imx8mqevk() {
